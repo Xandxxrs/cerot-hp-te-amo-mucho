@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>mensaje especial</title>
+
+<style>
+
+body{
+background:#c77dff;
+margin:0;
+overflow:hidden;
+font-family: Impact, Arial, sans-serif;
+color:white;
+text-align:center;
+}
+
+h1{
+margin-top:80px;
+font-size:45px;
+}
+
+#mensaje{
+font-size:42px;
+width:80%;
+margin:auto;
+margin-top:60px;
+}
+
+button{
+font-size:25px;
+padding:15px 30px;
+margin:20px;
+border:none;
+border-radius:12px;
+background:#9d4edd;
+color:white;
+cursor:pointer;
+}
+
+.decor{
+position:absolute;
+font-size:60px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- musica -->
+<iframe width="0" height="0"
+src="https://www.youtube.com/embed/6V6qH6p0Zq0?autoplay=1&loop=1&playlist=6V6qH6p0Zq0"
+frameborder="0"
+allow="autoplay">
+</iframe>
+
+<!-- corazones -->
+<div class="decor" style="top:10px;left:10px;">💙</div>
+<div class="decor" style="top:10px;right:10px;">💙</div>
+<div class="decor" style="bottom:10px;left:10px;">💙</div>
+<div class="decor" style="bottom:10px;right:10px;">💙</div>
+
+<!-- tulipanes -->
+<div class="decor" style="top:30%;left:20%;">🌷</div>
+<div class="decor" style="top:60%;left:10%;">🌷</div>
+<div class="decor" style="top:40%;right:15%;">🌷</div>
+<div class="decor" style="bottom:20%;right:25%;">🌷</div>
+<div class="decor" style="bottom:30%;left:40%;">🌷</div>
+
+<h1>tienes un mensaje especial esperandote</h1>
+
+<div id="botones">
+<button onclick="ver()">SI</button>
+<button onclick="no()">NO</button>
+</div>
+
+<div id="mensaje"></div>
+
+<script>
+
+frases=[
+"mami preciosa desde q llegaste a mi vida todo es mas bonito",
+"mi reina me encanta hablar contigo xq contigo todo se siente especial",
+"mi vida eres lo mejor q tengo y no quiero perderte nunca",
+"mami preciosa cuando sonríes haces q mi mundo sea mejor",
+"mi reina contigo quiero vivir mil momentos bonitos",
+"mi vida gracias por existir y por hacerme feliz",
+"rasca huevos aun asi te quiero mucho y eres especial para mi"
+]
+
+final="te amo muccho gracias por siempre estar con migo y te amo a ti y a tu chiquito"
+
+let i=0
+
+function escribir(texto,pos=0){
+
+if(pos<texto.length){
+
+document.getElementById("mensaje").innerHTML+=texto[pos]
+
+setTimeout(()=>escribir(texto,pos+1),60)
+
+}else{
+
+if(i<frases.length){
+setTimeout(siguiente,2000)
+}else{
+setTimeout(opcionesFinales,2000)
+}
+
+}
+
+}
+
+function siguiente(){
+
+document.getElementById("mensaje").innerHTML=""
+
+i++
+
+if(i<frases.length){
+escribir(frases[i])
+}else{
+escribir(final)
+}
+
+}
+
+function ver(){
+
+document.getElementById("botones").style.display="none"
+
+escribir(frases[0])
+
+}
+
+function no(){
+
+document.getElementById("botones").style.display="none"
+
+document.getElementById("mensaje").innerHTML="ya vi q me odias mala"
+
+}
+
+function opcionesFinales(){
+
+document.getElementById("mensaje").innerHTML="te gusto esto ejeje"
+
+let botones=document.createElement("div")
+
+botones.innerHTML=`
+<br>
+<button onclick="si()">SI</button>
+<button onclick="no2()">NO</button>
+`
+
+document.body.appendChild(botones)
+
+}
+
+function si(){
+
+document.getElementById("mensaje").innerHTML="gachaaaa enchelio te amo demaciado y si desis yo mas ps asi te lo digo QUE YO MAS HP digo Grrrr ejeje te amooo"
+
+}
+
+function no2(){
+
+document.getElementById("mensaje").innerHTML="mala ;("
+
+}
+
+</script>
+
+</body>
+</html>
